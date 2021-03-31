@@ -7,3 +7,18 @@
 // statement would look something like (if current = red, else if = green, else = grey)
 // logic gate basically saying that we don't have to define grey, we only have to say that the current time equals red, other times equal gree, and if neither of those are true then turn grey
 // it's a div, text input, and button. on click of the button it will grab the input value from the div
+// when the save button is clicked (onclick or .on for jquery) it will store the value in the input field as local
+// 2 variables, one for input and one for time 
+
+
+onclick();
+
+var inputValue = $(".description").val(); 
+var time = $(".hour").text(); 
+// .textContent() this is vanilla syntax
+localStorage.setItem(time, inputValue); 
+//^^ this is actually setting the value in the local storage
+
+var storedValue = localStorage.getItem(time);
+$(".description").val(storedValue); 
+//^^ are calling back the value from local storage and storing it in that text field
