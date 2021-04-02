@@ -40,44 +40,19 @@
 
 // }
 
-var nineAM = $("#nineAM");
-var nineAMText = $("#nineAMText");
+// this is the way we get the data from the textbox on button click, then I just need to store it using localStorage set item and I can call on it later with a localStorage get item
 
-var tenAM = $("#tenAM");
-var tenAMText = $("#tenAMText");
-
-
-var elevenAM = $("#elevenAM");
-var elevenAMText = $("#elevenAMText");
-
-var twelvePM = $("#twelvePM");
-var twelvePMText = $("#twelvePMText");
-
-var onePM = $("#onePM");
-var onePMText = $("#onePMText");
-
-var twoPM = $("#twoPM");
-var twoPMText = $("#twoPMText");
-
-var threePM = $("#threePM");
-var threePMText = $("#threePMText");
-
-var fourPM = $("#fourPM");
-var fourPMText = $("#fourPMText");
-
-var fivePM = $("#fivePM");
-var fivePMText = $("#fivePMText");
+// then the next function would be to make the boxes turn grey in the past, green in the future, and red in the present. using the var currentTime = moment().format("H"); to find the 
+//current time and compare it to the set moment() values I put on each div.
 
 
+// console.log
+// localStorage.getItem("9AM");
 
 
-var currentTime = moment().format("H");
+// nineAM.addEventListener("click", function(){
 
-var plannerDesc = $(".description");
-var saveBtn = $(".saveBtn");
 
-var timeOfDay = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-$("#currentDay").text(timeOfDay);
 // console.log(timeOfDay);
 
 
@@ -92,80 +67,6 @@ $("#currentDay").text(timeOfDay);
 
 //     console.log(inputValue);
 // }
-
-
-$("#nineAM").click(function() {
-    var nineAMValue = document.getElementById("nineAMText").value
-    localStorage.setItem( "9AM", nineAMValue);
-    console.log(nineAMValue);
-});
-
-$("#tenAM").click(function() {
-    var tenAMValue = document.getElementById("tenAMText").value
-    localStorage.setItem( "10AM", tenAMValue);
-    console.log(tenAMValue);
-});
-
-$("#elevenAM").click(function() {
-    var elevenAMValue = document.getElementById("elevenAMText").value
-    localStorage.setItem( "11AM", elevenAMValue);
-    console.log(elevenAMValue);
-});
-
-$("#twelvePM").click(function() {
-    var twelvePMValue = document.getElementById("twelvePMText").value
-    localStorage.setItem( "12PM", twelvePMValue);
-    console.log(twelvePMValue);
-});
-
-$("#onePM").click(function() {
-    var onePMValue = document.getElementById("onePMText").value
-    localStorage.setItem( "1PM", onePMValue);
-    console.log(onePMValue);
-});
-
-$("#twoPM").click(function() {
-    var twoPMValue = document.getElementById("twoPMText").value
-    localStorage.setItem( "2PM", twoPMValue);
-    console.log(twoPMValue);
-});
-
-$("#threePM").click(function() {
-    var threePMValue = document.getElementById("threePMText").value
-    localStorage.setItem( "3PM", threePMValue);
-    console.log(threePMValue);
-});
-
-$("#fourPM").click(function() {
-    var threePMValue = document.getElementById("threePMText").value
-    localStorage.setItem( "3PM", threePMValue);
-    console.log(threePMValue);
-});
-
-
-
-// console.log
-// localStorage.getItem("9AM");
-
-$("#nineAMText").text(localStorage.getItem("9AM"));// 9
-$("#nineAMText").text(localStorage.getItem("9AM"));// 10
-$("#nineAMText").text(localStorage.getItem("9AM"));// 11
-$("#nineAMText").text(localStorage.getItem("9AM"));// 12
-$("#nineAMText").text(localStorage.getItem("9AM"));// 1
-$("#nineAMText").text(localStorage.getItem("9AM"));// 2
-$("#nineAMText").text(localStorage.getItem("9AM"));// 3
-$("#nineAMText").text(localStorage.getItem("9AM"));// 4
-$("#nineAMText").text(localStorage.getItem("9AM"));// 5
-// this is the way we get the data from the textbox on button click, then I just need to store it using localStorage set item and I can call on it later with a localStorage get item
-
-// then the next function would be to make the boxes turn grey in the past, green in the future, and red in the present. using the var currentTime = moment().format("H"); to find the 
-//current time and compare it to the set moment() values I put on each div.
-
-
-
-// nineAM.addEventListener("click", function(){
-
-
 
 
 // });
@@ -184,3 +85,86 @@ $("#nineAMText").text(localStorage.getItem("9AM"));// 5
 // }
 // function 
 // if 9am = current hour set att to present , if else set att to past, else set att to future
+
+var nineAM = $("#nineAM");
+var nineAMText = $("#nineAMText");
+var tenAM = $("#tenAM");
+var tenAMText = $("#tenAMText");
+var elevenAM = $("#elevenAM");
+var elevenAMText = $("#elevenAMText");
+var twelvePM = $("#twelvePM");
+var twelvePMText = $("#twelvePMText");
+var onePM = $("#onePM");
+var onePMText = $("#onePMText");
+var twoPM = $("#twoPM");
+var twoPMText = $("#twoPMText");
+var threePM = $("#threePM");
+var threePMText = $("#threePMText");
+var fourPM = $("#fourPM");
+var fourPMText = $("#fourPMText");
+var fivePM = $("#fivePM");
+var fivePMText = $("#fivePMText");
+var currentTime = moment().format("H");
+var plannerDesc = $(".description");
+var saveBtn = $(".saveBtn");
+var timeOfDay = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+$("#currentDay").text(timeOfDay);
+$("#nineAM").click(function() {
+    var nineAMValue = document.getElementById("nineAMText").value
+    localStorage.setItem( "9AM", nineAMValue);
+    console.log(nineAMValue);
+});
+$("#tenAM").click(function() {
+    var tenAMValue = document.getElementById("tenAMText").value
+    localStorage.setItem( "10AM", tenAMValue);
+    console.log(tenAMValue);
+});
+$("#elevenAM").click(function() {
+    var elevenAMValue = document.getElementById("elevenAMText").value
+    localStorage.setItem( "11AM", elevenAMValue);
+    console.log(elevenAMValue);
+});
+$("#twelvePM").click(function() {
+    var twelvePMValue = document.getElementById("twelvePMText").value
+    localStorage.setItem( "12PM", twelvePMValue);
+    console.log(twelvePMValue);
+});
+$("#onePM").click(function() {
+    var onePMValue = document.getElementById("onePMText").value
+    localStorage.setItem( "1PM", onePMValue);
+    console.log(onePMValue);
+});
+$("#twoPM").click(function() {
+    var twoPMValue = document.getElementById("twoPMText").value
+    localStorage.setItem( "2PM", twoPMValue);
+    console.log(twoPMValue);
+});
+$("#threePM").click(function() {
+    var threePMValue = document.getElementById("threePMText").value
+    localStorage.setItem( "3PM", threePMValue);
+    console.log(threePMValue);
+});
+$("#fourPM").click(function() {
+    var fourPMValue = document.getElementById("fourPMText").value
+    localStorage.setItem( "4PM", fourPMValue);
+    console.log(fourPMValue);
+});
+$("#fivePM").click(function() {
+    var fivePMValue = document.getElementById("fivePMText").value
+    localStorage.setItem( "5PM", fivePMValue);
+    console.log(fivePMValue);
+});
+
+
+
+$("#nineAMText").text(localStorage.getItem("9AM"));// 9
+$("#tenAMText").text(localStorage.getItem("10AM"));// 10
+$("#elevenAMText").text(localStorage.getItem("11AM"));// 11
+$("#twelvePMText").text(localStorage.getItem("12PM"));// 12
+$("#onePMText").text(localStorage.getItem("1PM"));// 1
+$("#twoPMText").text(localStorage.getItem("2PM"));// 2
+$("#threePMText").text(localStorage.getItem("3PM"));// 3
+$("#fourPMText").text(localStorage.getItem("4PM"));// 4
+$("#fivePMText").text(localStorage.getItem("5PM"));// 5
+
+
