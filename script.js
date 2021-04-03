@@ -104,11 +104,19 @@ var fourPM = $("#fourPM");
 var fourPMText = $("#fourPMText");
 var fivePM = $("#fivePM");
 var fivePMText = $("#fivePMText");
-var currentTime = moment().format("H");
+
+
+var currentTime = parseInt(moment().format("H"));
+
+
+
 var plannerDesc = $(".description");
 var saveBtn = $(".saveBtn");
 var timeOfDay = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+
+
 $("#currentDay").text(timeOfDay);
+
 $("#nineAM").click(function() {
     var nineAMValue = document.getElementById("nineAMText").value
     localStorage.setItem( "9AM", nineAMValue);
@@ -155,8 +163,6 @@ $("#fivePM").click(function() {
     console.log(fivePMValue);
 });
 
-
-
 $("#nineAMText").text(localStorage.getItem("9AM"));// 9
 $("#tenAMText").text(localStorage.getItem("10AM"));// 10
 $("#elevenAMText").text(localStorage.getItem("11AM"));// 11
@@ -166,5 +172,45 @@ $("#twoPMText").text(localStorage.getItem("2PM"));// 2
 $("#threePMText").text(localStorage.getItem("3PM"));// 3
 $("#fourPMText").text(localStorage.getItem("4PM"));// 4
 $("#fivePMText").text(localStorage.getItem("5PM"));// 5
+
+
+var timeCheck = () => { 
+    $(".hour").each(function() {
+        // console.log("hourText" ,$(this).text());
+// console.log(parseInt($(this).text().split("am")[0]));
+// console.log(parseInt($(this).text().split("pm")[0]));
+
+// parseInt(currentTime)
+console.log("CT", currentTime); // CT
+        var hourText = parseInt($(this).text().trim());
+        console.log(hourText);
+        // var hourText = $(this).text().split("am")[0];
+        // $(this).text().split("am");
+        // $(this).text().split("pm");
+        if (hourText < currentTime) {
+
+            $(this).parent().addClass("past");
+            // console.log(hourText);
+            // console.log(currentTime);
+        } else if (hourText === currentTime) {
+
+            // console.log("anything sdfasd");
+            
+            $(this).parent().removeClass("past");
+
+            $(this).parent().addClass("present");
+
+        } else if (hourText >= currentTime) { 
+            console.log("hello future")
+            $(this).parent().removeClass("past");
+            $(this).parent().removeClass("present");
+            $(this).parent().addClass("future");
+        }
+        
+    });
+
+}
+
+timeCheck();
 
 
