@@ -192,12 +192,10 @@ console.log("CT", currentTime); // CT
             $(this).parent().addClass("past");
             // console.log(hourText);
             // console.log(currentTime);
+
         } else if (hourText === currentTime) {
-
             // console.log("anything sdfasd");
-            
             $(this).parent().removeClass("past");
-
             $(this).parent().addClass("present");
 
         } else if (hourText >= currentTime) { 
@@ -206,11 +204,8 @@ console.log("CT", currentTime); // CT
             $(this).parent().removeClass("present");
             $(this).parent().addClass("future");
         }
-        
     });
-
 }
-
 timeCheck();
 
 
